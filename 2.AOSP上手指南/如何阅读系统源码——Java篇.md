@@ -1,6 +1,6 @@
 # 如何阅读 Android 系统源码 —— Java 篇
 
-## 1. 工具篇 —— AIDEGen + Android Studio 
+## 1. 工具篇 —— AIDEGen + Android Studio
 
 AIDEGen，我叫它 “爱得跟”，大概是 Android10 中，google 推出的一个工具，用于方便开发者使用 IDE 来查看和修改系统源码。AIDEGen + Android Studio 非常适合用于阅读与修改 Android 系统 Java 代码。
 
@@ -36,7 +36,6 @@ aidegen frameworks/base/services -i s
 ```
 
 稍作等待，Android Studio 就打开了，不过现在还不能直接使用，我们还需要做一些基本的配置:
-
 
 Android Studio 打开后，右下角会出现一个提示框（如果没有出现，点击 file -> Invalidate Caches -> Invalidate and Restart）：
 
@@ -86,7 +85,6 @@ Android Studio 打开后，右下角会出现一个提示框（如果没有出�
 
 点击 ok 即可。
 
-
 接着我们需要配置项目的 sdk，点击 file -> Project Structure，点击左侧 Project，右侧 SDK 选项选择 aosp10-android-sdk：
 
 ![](https://gitee.com/stingerzou/pic-bed/raw/master/img/20230331000336.png)
@@ -102,7 +100,6 @@ Android Studio 打开后，右下角会出现一个提示框（如果没有出�
 最后点击 apply，项目开始重新索引，项目内绝大部分类方法变量均可正确跳转。
 
 至此，配置完成。
-
 
 ## 2. 手段篇 —— Java 源码的阅读
 
@@ -130,7 +127,6 @@ aidegen frameworks/base/services
 
 在 Android Studio 中我们打开 SystemServer.java，找到 main 方法，并添加下面的代码：
 
-
 ```java
 public static void main(String[] args) {
 
@@ -138,11 +134,11 @@ public static void main(String[] args) {
     Log.d("yuandaima", "SystemServer is starting");
     //通过打印堆栈了解方法的调用路径
     printStackTrace(Thread.currentThread());
-        
+
     new SystemServer().run();
 }
 
- 
+
 
 //打印调用堆栈的方法
 public static void printStackTrace(Thread thread) {
@@ -150,7 +146,7 @@ public static void printStackTrace(Thread thread) {
             Log.d("yuandaima", e.toString());
         }
 }
-  
+
 ```
 
 接着我们编译系统，开启模拟器，然后获取日志信息：
@@ -169,7 +165,6 @@ rice14:/ # logcat | grep "yuandaima"
 
 通过打日志我们可以了解系统程序的运行状况以及一些关键参数，通过调用堆栈我们可以了解程序运行过程中方法的一个调用流程。
 
-
 非启动相关的源码，通常结合两种方法来阅读。接下来我们看看如何断点调试系统 App：
 
 首先，我们开一个新的终端，打开模拟器：
@@ -183,7 +178,6 @@ emulator
 接着我们在 Settings/AndroidManifest.xml 查找到 Settings App 的首 Activity 为 SettingsHomepageActivity，我们在其 onCreate 出打一个断点：
 
 ![](https://gitee.com/stingerzou/pic-bed/raw/master/img/20230331001249.png)
-
 
 接着在 Android 模拟器中打开 Settings 应用。
 
@@ -200,15 +194,3 @@ emulator
 ![](https://gitee.com/stingerzou/pic-bed/raw/master/img/20230331002134.png)
 
 接着我们就可以顺利的进行调试了。
-
-
-## 关于
-
-
-如果你对 Framework 感兴趣或者正在学习 Framework，可以参考我总结的[Android Framework 学习路线指南](https://github.com/yuandaimaahao/AndroidFrameworkTutorial),也可关注我的微信公众号，我会在公众号上持续分享我的经验，帮助正在学习的你少走一些弯路。学习过程中如果你有疑问或者你的经验想要分享给大家可以添加我的微信，我拉你进技术交流群。
-
-![](https://gitee.com/stingerzou/pic-bed/raw/master/img/4e7348e352774883ecb19ab021d6cee.jpg)
-
-
-
-

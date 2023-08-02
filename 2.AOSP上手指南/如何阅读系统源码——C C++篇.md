@@ -1,4 +1,4 @@
-# 如何阅读 Android 系统源码 —— C/C++ 篇 
+# 如何阅读 Android 系统源码 —— C/C++ 篇
 
 ## 1. 工具篇
 
@@ -32,7 +32,6 @@ find . -name "SurfaceFlinger*"
 
 这里我们知道 SurfaceFlinger 定义在 `frameworks/native/services` 目录:
 
-
 接着我们打开 Clion，点击 Open：
 
 ![](https://gitee.com/stingerzou/pic-bed/raw/master/img/20230512043810.png)
@@ -51,13 +50,12 @@ find . -name "SurfaceFlinger*"
 
 ![](https://gitee.com/stingerzou/pic-bed/raw/master/img/20230512054745.png)
 
-
 ## 2. 手段篇
 
 阅读源码主要两个手段：
 
-* 打印 Log + 打印调用堆栈
-* 使用 CLion 调试
+- 打印 Log + 打印调用堆栈
+- 使用 CLion 调试
 
 这里我们修改 SurfaceFlinger 的主函数 main_surfaceflinger.cpp 来演示打印 Log 和打印调用堆栈：
 
@@ -93,7 +91,6 @@ int main(int, char**) {
 
 ![](https://gitee.com/stingerzou/pic-bed/raw/master/img/20230512060159.png)
 
-
 接着我们重新编译代码，启动模拟器，进入 adb shell，查看 log：
 
 ```bash
@@ -105,7 +102,6 @@ rice14:/ # logcat | grep yuandaima_sf
 ```
 
 通过 log 信息我们可以知道程序的运行状态和运行过程中的关键参数。通过调用栈我们可以知道函数的执行流程。
-
 
 我们还可以通过 Clion 来调试 C/C++ 代码:
 
@@ -128,7 +124,7 @@ rice14:/ # logcat | grep yuandaima_sf
 接着我们查看 servicemanage 进程的 pid：
 
 ```bash
-adb shell ps -A | grep servicemanager 
+adb shell ps -A | grep servicemanager
 system        1406     1   14116   5532 binder_ioctl        0 S servicemanager
 system        1407     1   21764   9772 SyS_epoll_wait      0 S hwservicemanager
 system        1408     1   14816   2584 binder_ioctl        0 S vndservicemanage
@@ -145,12 +141,4 @@ adb shell gdbserver64 :1235 --attach 1406
 
 ![](https://gitee.com/stingerzou/pic-bed/raw/master/img/20230512055546.png)
 
-
 这样我们就可以开始调试 C/C++ 代码了。
-
-## 关于
-
-
-如果你对 Framework 感兴趣或者正在学习 Framework，可以参考我总结的[Android Framework 学习路线指南](https://github.com/yuandaimaahao/AndroidFrameworkTutorial),也可关注我的微信公众号，我会在公众号上持续分享我的经验，帮助正在学习的你少走一些弯路。学习过程中如果你有疑问或者你的经验想要分享给大家可以添加我的微信，我拉你进技术交流群。
-
-![](https://gitee.com/stingerzou/pic-bed/raw/master/img/4e7348e352774883ecb19ab021d6cee.jpg)
