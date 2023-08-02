@@ -4,19 +4,19 @@
 
 使用命令行的第一步是打开 Terminal 软件：
 
-* 点击 windows 键，进入以下界面
-![](https://gitee.com/stingerzou/pic-bed/raw/master/img/20230223221456.png)
+- 点击 windows 键，进入以下界面
+  ![](https://gitee.com/stingerzou/pic-bed/raw/master/img/20230223221456.png)
 
-* 在搜索栏输入 Terminal
-![](https://gitee.com/stingerzou/pic-bed/raw/master/img/20230223221412.png)
-* 双击 Terminal 图标打开
-![](https://gitee.com/stingerzou/pic-bed/raw/master/img/20230223221702.png) 
+- 在搜索栏输入 Terminal
+  ![](https://gitee.com/stingerzou/pic-bed/raw/master/img/20230223221412.png)
+- 双击 Terminal 图标打开
+  ![](https://gitee.com/stingerzou/pic-bed/raw/master/img/20230223221702.png)
 
 这样我们就进入了命令行环境了。
 
 Terminal 是一个图形化程序，我们在 Terminal 中输入一些指令（通常称为命令），Terminal 会将这些指令交由 `/bin/bash` 程序处理，处理完成后，会将输出的结果显示在 Terminal 的窗口中。
 
-和 `/bin/bash` 提供相同功能的程序有很多种，常见的有 `/bin/sh /bin/zsh` 等。这类程序我们统称为 shell 
+和 `/bin/bash` 提供相同功能的程序有很多种，常见的有 `/bin/sh /bin/zsh` 等。这类程序我们统称为 shell
 
 ## 命令行基础
 
@@ -25,7 +25,6 @@ Terminal 是一个图形化程序，我们在 Terminal 中输入一些指令（�
 打开 Terminal 后，可以看到提示符，其具体含义如下：
 
 ![](https://gitee.com/stingerzou/pic-bed/raw/master/img/20230224100331.png)
-
 
 ### 2. 路径
 
@@ -48,12 +47,11 @@ Linux 下的根目录为 `/`，从根目录下出发可以找到任意目录、�
 ../book/1.txt #表示当前目录的上一级目录里，book 子目录下的 1.txt, .. 表示上一级目录
 ```
 
-
 ## 文件与目录相关命令
 
 ### 1. ls 命令
 
-**ls** 用于查看目录下的文件信息  
+**ls** 用于查看目录下的文件信息
 
 ```bash
 ls
@@ -80,26 +78,26 @@ drwxr-xr-x 8 zzh0838 zzh0838     4096 7月  31 08:08 vmware-tools-distrib
 
 Linux 用户管理
 
-* Linux 是一个多用户操作系统
-* Linux 中有很多用户组，每个用户都在一个或多个用户组，
+- Linux 是一个多用户操作系统
+- Linux 中有很多用户组，每个用户都在一个或多个用户组，
 
 ![](https://gitee.com/stingerzou/pic-bed/raw/master/img/20230224103346.png)
 
-第1个字母代表文件类型：
+第 1 个字母代表文件类型：
 
-* -：常规文件
-* d：目录文件
-* b：block device 即块设备文件
-* c：character device 即字符设备文件
-* l：symbolic link 即符号链接文件，又称软链接文件
-* p：pipe 即命名管道文件
-* s：socket 即套接字文件
+- -：常规文件
+- d：目录文件
+- b：block device 即块设备文件
+- c：character device 即字符设备文件
+- l：symbolic link 即符号链接文件，又称软链接文件
+- p：pipe 即命名管道文件
+- s：socket 即套接字文件
 
 文件类型后面的 9 个字符表示文件的权限，以 3 个为一组
 
-* 第一组表示 “文件所有者的权限”；
-* 第二组表示 “用户组的权限”；
-* 第三组表示 “其他非本用户组的权限”。
+- 第一组表示 “文件所有者的权限”；
+- 第二组表示 “用户组的权限”；
+- 第三组表示 “其他非本用户组的权限”。
 
 每组都是 rwx 的组合，其中 r 代表可读，w 代表可写，x 代表可执行；如果没有对应的权限，就会出现减号（-）。比 “rw-r--r--” 表示：文件的所有者对该文件有读权限、写权限，但是没有执行权限；同一个用户组的其他用户对该文件只有读权限；其他用户对该文件也只有读权限。
 
@@ -114,7 +112,6 @@ Linux 用户管理
 文件最后被修改的时间：这个文件的创建文件日期或者是最近的修改日期。
 
 文件名：对应文件的文件名。如果文件名之前多了一个“.”,则说明这个文件为“隐藏文件”，执行“ls -a”命令可以列出隐藏文件。
-
 
 ```bash
 # -a 表示查看所有文件，包括隐藏文件
@@ -144,7 +141,6 @@ cd ~
 # 进入上一次的目录
 cd -
 ```
-
 
 ### 3. pwd 命令
 
@@ -189,7 +185,7 @@ mkdir -p dir/dir2/dir3
 ### 7. file 用于查看文件类型
 
 ```bash
-file test.txt 
+file test.txt
 test.txt: ASCII text
 ```
 
@@ -201,7 +197,7 @@ cat test
 cat -n test
 ```
 
-### 9. less 
+### 9. less
 
 cat 是一次性将文件内容输出到终端，文件内容很多不方便浏览，这时可以使用 less 逐页查看
 
@@ -226,7 +222,7 @@ head -5 .bashrc
 
 ```bash
 #删除文件
-rm file 
+rm file
 #删除文件夹
 rm -r dir
 #强制删除
@@ -234,7 +230,6 @@ rm -f file
 ## 强制删除文件夹
 rm -rf dir
 ```
-
 
 ### 12. mv 用于移动文件或者重命名文件
 
@@ -258,13 +253,11 @@ sudo apt install tree
 tree -L 2
 ```
 
-
 ### 15. chmod 用于修改文件权限
 
 ![](https://gitee.com/stingerzou/pic-bed/raw/master/img/20230114170658.png)
 
 ![](https://gitee.com/stingerzou/pic-bed/raw/master/img/20230114170948.png)
-
 
 ```bash
 chmod a+r file
@@ -279,9 +272,7 @@ chown root /var/run/httpd.pid
 chown runoob:runoobgroup file1.txt
 ```
 
-
 ## 查找搜索命令
-
 
 ### 1. find 用于搜索文件
 
@@ -296,15 +287,14 @@ find -name "*.txt"
 
 -name 后面跟的字符串可以使用 Linux 通配符，常见的通配符有：
 
-\*   代表任意字符(0到多个)
-？  代表一个字符
-[ ]  中间为字符组合，仅匹配其中任一一个字符
+\* 代表任意字符(0 到多个)
+？ 代表一个字符
+[ ] 中间为字符组合，仅匹配其中任一一个字符
 
 ```bash
 # s a[bcd].txt 找以a开头，且文件名以bcd中任一字符结尾的txt文件
 ls a[bcd].txt
 ```
-
 
 ### 2. grep 查找文件中符合条件的字符串
 
@@ -314,7 +304,6 @@ grep -n "abc" test1.txt
 #当前目录下递归查找字符串
 grep -R "abc" .
 ```
-
 
 ## 文件压缩命令
 
@@ -327,7 +316,7 @@ grep -R "abc" .
 -z：使用 gzip 方式进行处理，它与 "c" 结合就表示压缩，与 "x" 结合就表示解压缩。
 -j：使用 bzip2 方式进行处理，它与 "c" 结合就表示压缩，与”x“结合就表示解压缩。
 -v(verbose)：详细报告 tar 处理的信息。
--f(file)：表示文件，后面接着一个文件名。 
+-f(file)：表示文件，后面接着一个文件名。
 -C <指定目录> 解压到指定目录。
 
 把目录 dira 压缩、打包为 dira.tar.gz 文件
@@ -345,6 +334,7 @@ tar -xzvf dira.tar.gz -C /home/book
 ```bash
 ping www.baidu.com
 ```
+
 ### 2. wget 用于在网络上下载文件
 
 ```
@@ -438,7 +428,6 @@ passwd hello
 sudo userdel username
 ```
 
-
 **usermod** 用来修改用户帐号的各项设定
 
 ```bash
@@ -469,11 +458,11 @@ ps -f #全格式输出
 
 ![](https://gitee.com/stingerzou/pic-bed/raw/master/img/20230224142757.png)
 
-
 **kill** 手动关闭
+
 ```bash
 kill 1234 #后面跟pid
-``` 
+```
 
 **shutdown** 用于关机
 
@@ -481,18 +470,17 @@ kill 1234 #后面跟pid
 
 很多人不习惯在命令行下编辑文件，实际开发中也不会经常在命令行下编辑文件。但是在 Linux 系统中对文件做些简单修改时，使用 vim 命令的效率非常高。并且在很多时候，比如现场调试时，并没有 GUI 形式的编辑工具，vim 是唯一选择。
 
-
 vim 编辑器有三种模式,各个模式侧重点不一样：
-* 一般模式（光标移动、复制、粘贴、删除）
-* 编辑模式（编辑文本）
-* 命令行模式（查找和替换）
+
+- 一般模式（光标移动、复制、粘贴、删除）
+- 编辑模式（编辑文本）
+- 命令行模式（查找和替换）
 
 vim 编辑器的三种模式间切换如下图所示：
 
 ![](https://gitee.com/stingerzou/pic-bed/raw/master/img/20230224141446.png)
 
 当不知道处于何种模式时，按 ESC 键返回到一般模式
-
 
 ## 场景实操
 
@@ -501,6 +489,7 @@ vim 编辑器的三种模式间切换如下图所示：
 ```bash
 sudo apt install samba
 ```
+
 修改 /etc/samba/smb.conf，添加如下内容：
 
 ```bash
@@ -519,14 +508,15 @@ sudo systemctl restart smbd
 sudo systemctl enable smbd
 ```
 
-### Window  ssh 免密登录 Ubuntu
+### Window ssh 免密登录 Ubuntu
 
 ```bash
 # 生成公钥
 ssh-keygen -t rsa
 cat ~/.ssh/id_rsa.pub
 ```
-将公钥文件的内容拷贝到 ubuntu 的 ~/.ssh/authorized_keys 中 
+
+将公钥文件的内容拷贝到 ubuntu 的 ~/.ssh/authorized_keys 中
 
 重启 ssh 服务
 
@@ -558,8 +548,8 @@ Partition type
    e   extended (container for logical partitions)
 Select (default p): p
 Partition number (1-4, default 1): 1
-First sector (2048-2147483647, default 2048): 
-Last sector, +sectors or +size{K,M,G,T,P} (2048-2147483647, default 2147483647): 
+First sector (2048-2147483647, default 2048):
+Last sector, +sectors or +size{K,M,G,T,P} (2048-2147483647, default 2147483647):
 
 Created a new partition 1 of type 'Linux' and of size 1024 GiB.
 
@@ -588,9 +578,10 @@ UUID=7eb32ab5-4e67-477d-a78c-1be16cf65e48 /home/zzh0838/Aosp ext4 defaults 0 2
 ```
 
 这里配置的含义如下：
+
 - UUID 为硬盘分区的 UUID 值
 - 路径 为挂载的目标路径
 - 分区格式 这里一般为 ext4
 - 挂载参数 一般为默认 defaults
-- 备份 0为不备份， 1为每天备份，2为不定期备份
-- 检测 0为不检测，其他为优先级
+- 备份 0 为不备份， 1 为每天备份，2 为不定期备份
+- 检测 0 为不检测，其他为优先级

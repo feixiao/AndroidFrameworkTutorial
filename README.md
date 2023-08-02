@@ -12,40 +12,29 @@
 
 基础部分已分享内容：
 
-- [Ubuntu 使用快速入门](https://juejin.cn/post/7203571284558381117)
-
-- [Make 构建工具入门](https://juejin.cn/post/7203931072261193787)
-
+- [Ubuntu 使用快速入门](./1.基础篇/Ubuntu%20使用快速入门.md)
+- [Make 构建工具入门](./1.基础篇/Make%20构建工具入门.md)
 - [理解 Unicode UTF-8 UTF-16 UTF-32](https://juejin.cn/post/7207365636694458425)
-
-- [Linux Shell 脚本编程入门——核心基础语法](https://juejin.cn/post/7222931700439285817)
-
-- [SEAndroid 使用极速上手](https://juejin.cn/post/7208472817460248637)
-
+- [Linux Shell 脚本编程入门——核心基础语法](./1.基础篇/Shell脚本编程入门/Linux%20Shell%20脚本编程入门1——核心基础语法.md)
+- [Linux Shell 脚本编程入门 2——脚本自动化基础](./1.基础篇/Shell脚本编程入门/Linux%20Shell%20脚本编程入门2——脚本自动化基础.md)
+- [SEAndroid 使用极速上手](./2.AOSP上手指南/009.SeAndroid%20使用入门.md)
 - [理解 C++ 的 Memory Order](https://juejin.cn/post/7216182763237146681)
-
-- [Linux Shell 脚本编程入门 1——核心基础语法](https://juejin.cn/post/7222931700439285817)
-
-- [Linux Shell 脚本编程入门 2——脚本自动化基础](https://juejin.cn/post/7223669247711887416)
-
-- [Android 平台如何编译执行 C C++ 可执行程序](https://juejin.cn/post/7224898006842097725)
-
-- [如何阅读 Android 系统源码 —— Java 篇](https://juejin.cn/post/7231809738203611194)
-
-- [如何阅读 Android 系统源码 —— C/C++ 篇](https://juejin.cn/post/7231944822101098554)
-- [JNI 编程上手指南之 HelloWorld 实战](https://github.com/yuandaimaahao/AndroidFrameworkTutorial/blob/main/1.%E5%9F%BA%E7%A1%80%E7%AF%87/JNI%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/001.JNI%20%E7%BC%96%E7%A8%8B%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%E4%B9%8B%20HelloWorld%20%E5%AE%9E%E6%88%98.md)
-- [JNI 编程上手指南之 JNI 数据类型](https://github.com/yuandaimaahao/AndroidFrameworkTutorial/blob/main/1.%E5%9F%BA%E7%A1%80%E7%AF%87/JNI%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/002.JNI%20%E7%BC%96%E7%A8%8B%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%E4%B9%8B%20JNI%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.md)
-- [JNI 编程上手指南之描述符](https://github.com/yuandaimaahao/AndroidFrameworkTutorial/blob/main/1.%E5%9F%BA%E7%A1%80%E7%AF%87/JNI%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/003.JNI%20%E7%BC%96%E7%A8%8B%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%E4%B9%8B%E6%8F%8F%E8%BF%B0%E7%AC%A6.md)
-- [JNI 编程上手指南之 JNIEnv 详解](https://github.com/yuandaimaahao/AndroidFrameworkTutorial/blob/main/1.%E5%9F%BA%E7%A1%80%E7%AF%87/JNI%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/004.JNI%20%E7%BC%96%E7%A8%8B%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%E4%B9%8B%20JNIEnv%20%E8%AF%A6%E8%A7%A3.md)
-- [JNI 编程上手指南之 JavaVM 详解](https://github.com/yuandaimaahao/AndroidFrameworkTutorial/blob/main/1.%E5%9F%BA%E7%A1%80%E7%AF%87/JNI%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/005.JNI%20%E7%BC%96%E7%A8%8B%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%E4%B9%8B%20JavaVM%20%E8%AF%A6%E8%A7%A3.md)
-- [JNI 编程上手指南之字符串处理](https://github.com/yuandaimaahao/AndroidFrameworkTutorial/blob/main/1.%E5%9F%BA%E7%A1%80%E7%AF%87/JNI%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/006.JNI%20%E7%BC%96%E7%A8%8B%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%E4%B9%8B%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86.md)
-- [JNI 编程上手指南之数组访问](https://github.com/yuandaimaahao/AndroidFrameworkTutorial/blob/main/1.%E5%9F%BA%E7%A1%80%E7%AF%87/JNI%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/007.JNI%20%E7%BC%96%E7%A8%8B%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%E4%B9%8B%E6%95%B0%E7%BB%84%E8%AE%BF%E9%97%AE.md)
-- [JNI 编程上手指南之 Native 访问 Java](https://github.com/yuandaimaahao/AndroidFrameworkTutorial/blob/main/1.%E5%9F%BA%E7%A1%80%E7%AF%87/JNI%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/008.JNI%E7%BC%96%E7%A8%8B%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%E4%B9%8B%20Native%20%E8%AE%BF%E9%97%AE%20Java.md)
-- JNI 编程上手指南之异常处理
-- JNI 编程上手指南之从内存角度再看引用类型
-- JNI 编程上手指南之 JNI 调用性能优化
-- JNI 编程上手指南之 Native Crash 分析
-- JNI 编程上手指南之多线程
+- [Android 平台如何编译执行 C C++ 可执行程序](./1.基础篇/Android%20平台如何编译执行%20C%20C++%20可执行程序.md)
+- [如何阅读 Android 系统源码 —— Java 篇](./2.AOSP上手指南/如何阅读系统源码——Java篇.md)
+- [如何阅读 Android 系统源码 —— C/C++ 篇](./2.AOSP上手指南/如何阅读系统源码——C%20C++篇.md)
+- [JNI 编程上手指南之 HelloWorld 实战](./1.基础篇/JNI编程入门/001.JNI%20%E7%BC%96%E7%A8%8B%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%E4%B9%8B%20HelloWorld%20%E5%AE%9E%E6%88%98.md)
+- [JNI 编程上手指南之 JNI 数据类型](./1.基础篇/JNI编程入门/002.JNI%20%E7%BC%96%E7%A8%8B%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%E4%B9%8B%20JNI%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.md)
+- [JNI 编程上手指南之描述符](./1.基础篇/JNI编程入门/003.JNI%20%E7%BC%96%E7%A8%8B%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%E4%B9%8B%E6%8F%8F%E8%BF%B0%E7%AC%A6.md)
+- [JNI 编程上手指南之 JNIEnv 详解](./1.基础篇/JNI编程入门/004.JNI%20%E7%BC%96%E7%A8%8B%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%E4%B9%8B%20JNIEnv%20%E8%AF%A6%E8%A7%A3.md)
+- [JNI 编程上手指南之 JavaVM 详解](./1.基础篇/JNI编程入门/005.JNI%20%E7%BC%96%E7%A8%8B%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%E4%B9%8B%20JavaVM%20%E8%AF%A6%E8%A7%A3.md)
+- [JNI 编程上手指南之字符串处理](./1.基础篇/JNI编程入门/006.JNI%20%E7%BC%96%E7%A8%8B%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%E4%B9%8B%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86.md)
+- [JNI 编程上手指南之数组访问](./1.基础篇/JNI编程入门/007.JNI%20%E7%BC%96%E7%A8%8B%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%E4%B9%8B%E6%95%B0%E7%BB%84%E8%AE%BF%E9%97%AE.md)
+- [JNI 编程上手指南之 Native 访问 Java](./1.基础篇/JNI编程入门/008.JNI%E7%BC%96%E7%A8%8B%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%E4%B9%8B%20Native%20%E8%AE%BF%E9%97%AE%20Java.md)
+- [JNI 编程上手指南之异常处理](./1.基础篇/JNI编程入门/009.JNI编程上手指南之异常处理.md)
+- [JNI 编程上手指南之从内存角度再看引用类型](./1.基础篇/JNI编程入门/010.JNI%20编程上手指南之从内存角度再看引用类型.md)
+- [JNI 编程上手指南之 JNI 调用性能优化](./1.基础篇/JNI编程入门/011.JNI%20编程上手指南之%20JNI%20调用性能优化.md)
+- [JNI 编程上手指南之 Native Crash 分析](./1.基础篇/JNI编程入门/013.JNI%20编程上手指南之%20Native%20Crash%20分析.md)
+- [JNI 编程上手指南之多线程](./1.基础篇/JNI编程入门/014.JNI编程上手指南之多线程.md)
 
 ## 3. AOSP 快速上手路线
 
@@ -55,29 +44,27 @@
 
 这部分内容主要是让大家上手 Android 系统源码，对系统开发有一个感性的认知，主要有以下内容：
 
-- [AOSP 极速上手](https://juejin.cn/post/7202634945171537977)
-
-- [系统开发工具](https://juejin.cn/post/7216495812577427517)
-
-- [添加 Product](https://juejin.cn/post/7203958049983529015)
+- [AOSP 极速上手](./2.AOSP上手指南/001.AOSP%20极速上手.md)
+- [系统开发工具](./2.AOSP上手指南/002.系统开发工具推荐.md)
+- [添加 Product](./2.AOSP上手指南/003.添加%20Product.md)
 
 - 系统模块添加
 
-  - [添加 C/C++、Java 可执行程序](https://juejin.cn/post/7216624116337508412)
+  - [添加 C/C++、Java 可执行程序](./2.AOSP上手指南/004.AOSP添加可执行程序.md)
 
-  - [添加 C/C++、Java 库](https://juejin.cn/post/7217279252316045372)
+  - [添加 C/C++、Java 库](./2.AOSP上手指南/005.添加%20C%20C++、Java%20库.md)
 
-  - [添加配置文件与删除已有模块](https://juejin.cn/post/7217644586868391996)
+  - [添加配置文件与删除已有模块](./2.AOSP上手指南/006.添加配置文件与删除已有模块.md)
 
 - 系统 App 开发入门
 
-  - [系统 App 源码添加](https://juejin.cn/post/7207374216127103033)
+  - [系统 App 源码添加](./2.AOSP上手指南/007.添加系统%20App%20源码.md)
 
-  - [使用 Android Studio 开发系统 App](https://juejin.cn/post/7207358268804579386)
+  - [使用 Android Studio 开发系统 App](./2.AOSP上手指南/008.使用%20Android%20Studio%20开发系统%20App.md)
 
-- [添加开机自启动 Shell 脚本](https://juejin.cn/post/7219712310586474553)
+- [添加开机自启动 Shell 脚本](./2.AOSP上手指南/010.添加开机自启动%20Shell%20脚本.md)
 
-- 添加开机自启动 C++ 程序
+- [添加开机自启动 C++ 程序]
 
 - APK 预制详解
 
@@ -266,6 +253,10 @@ Android 图形系统是系统框架中一个非常重要的子系统，我们从
 - SystemUI
 
 - 系统应用开发相关面试题分析
+
+### 13. 其他
+
+- Android 多屏显示分析
 
 ## 总结
 
