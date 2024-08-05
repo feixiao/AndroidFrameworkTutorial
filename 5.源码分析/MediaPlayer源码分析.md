@@ -1,8 +1,8 @@
 ## MediaPlayer 源码分析
 
-## 1 状态图和生命周期
+## 1. 状态图和生命周期
 
-### 1. MediaPlayer 的状态图
+### 1.1 MediaPlayer 的状态图
 
 MediaPlayer 用于控制视频/音频文件及流的播放，由状态机进行控制。下图是 MediaPlayer 的状态周期。
 
@@ -12,14 +12,14 @@ MediaPlayer 用于控制视频/音频文件及流的播放，由状态机进行�
   - 单箭头弧表示同步函数调用
   - 双箭头弧表示异步函数调用
 
-### 2. Idle 状态和 End 状态
+### 1.2. Idle 状态和 End 状态
 
 - MediaPlayer 创建实例或调用 reset 函数后，播放器就被创建了，此时处于 Idle 状态（就绪状态）
 - MediaPlayer 调用 release 函数后，播放器就会变成 End 状态
 
 这两种状态之间就是 MediaPlayer 的生命周期。
 
-### 3. Error 状态
+### 1.3. Error 状态
 
 触发条件：
 
@@ -31,14 +31,14 @@ MediaPlayer 用于控制视频/音频文件及流的播放，由状态机进行�
   - 此时 MediaPlayer 进入到 Error 状态；此时可以调用 reset 函数，将重新恢复到 Idle 状态
   - 故此我们要给 MediaPlayer 设置错误监听，出错之后就可以从播放器内部返回的信息中找到错误原因
 
-### 4. Initialized 状态
+### 1.4. Initialized 状态
 
 - 触发条件：调用 `setDataSource(FileDescriptor)`, `setDataSource(String)`, `setDataSource(COntext, Uri)`, `setDataSource(FileDescriptor, long, long)` 其中一个函数
 - 过程：MediaPlayer 状态将会从 Idle 变为 Initialized
 - 异常：如果`setDataSource`在非 Idle 时调用，则会抛出`IllegalArgumentException`
 - 注意：重载`setDataSource`方法是，需要抛出`IlleagalArgumentException`和`IOException`异常
 
-### 5. Prepared 状态
+### 1.5. Prepared 状态
 
 - 触发条件
   - 同步方式
@@ -49,7 +49,7 @@ MediaPlayer 用于控制视频/音频文件及流的播放，由状态机进行�
     - 状态：Initialized --> preparing（时间较短） --> prepared
 - 到达 Prepared 状态后，回调 `OnPreparedListener.onPrepared()`监听器
 
-### 6. Started 状态
+### 1.6. Started 状态
 
 当 MediaPlayer 进入 Prepared 状态后，就可以设置音视频、looping、screenOnWhilePlaying 等属性了。
 
@@ -57,7 +57,7 @@ MediaPlayer 用于控制视频/音频文件及流的播放，由状态机进行�
   - 处于 Started 状态时，如果用户事先注册过`setOnBufferingUpdatedListener`，那播放器就会回调`OnBufferingUpdateListener.onBufferingUpdate()`。这个函数主要用于应用程序保持跟踪音视频流的 buffering status
 - 注意：如果 MediaPlayer 已经处于 Started 状态，那么再调用 Started 函数是没有任何作用的
 
-### 7. Paused 状态
+### 1.7. Paused 状态
 
 - 触发条件：调用`MediaPlayer.pause()`
 - 过程：
@@ -66,7 +66,7 @@ MediaPlayer 用于控制视频/音频文件及流的播放，由状态机进行�
 - 注意：
   - 当`start`函数从`Paused`状态恢复过来时，`playback`恢复之前暂停的位置，接着开始播放，此时 `MediaPlayer`状态又变成`Started`
 
-### 8. Stopped 状态
+### 1.8. Stopped 状态
 
 - 触发：调用`MediaPlayer.stop()`函数
 - 过程：无论播放器处于`Started`, `Paused`, `Prepared`或`PlackbackCompleted`状态，都进入`Stopped`状态
@@ -75,7 +75,7 @@ MediaPlayer 用于控制视频/音频文件及流的播放，由状态机进行�
   - 一旦进入`Stopped`状态，`playback`将不能开始，直到重新调用`prepare`或`prepareAsync`函数，处于`Prepared`状态才可以开始
   - 在`Seek`操作完成后，播放器内部将会回调`OnSeekComplete.onSeekComplete`函数；其他状态下也可以调用`SeekTo`函数，比如`Prepared`，`Paused`以及`PlaybackComplete`
 
-### 9. PlaybackComplete 状态
+### 1.9. PlaybackComplete 状态
 
 当前播放位置可以通过`getCurrentPosition` 函数获取。
 
@@ -84,9 +84,9 @@ MediaPlayer 用于控制视频/音频文件及流的播放，由状态机进行�
 - 注意：
   - 如果设置了`setLooping(true)`（表示循环播放），一次数据播放完了之后，已经是处于`Started`状态
 
-## 2 从创建到 setDataSource 过程
+## 2: 从创建到 setDataSource 过程
 
-### 1 从创建到 setDisplay 过程
+### 2.1 从创建到 setDisplay 过程
 
 时序图如下：
 
@@ -99,7 +99,7 @@ MediaPlayer 用于控制视频/音频文件及流的播放，由状态机进行�
 - 调用`setDataSource`把 URL 地址传入底层
 - 准备好后，通过`setDisaplay`传入`SurfaceHolder`，以便讲解码出的数据放到`SurfaceHolder`中的`Surface`，最后显示在`SurfaceView`上
 
-### 2 创建过程
+### 2.2 创建过程
 
 `MediaPlayer`可以有两种方式进行创建：
 
@@ -249,7 +249,7 @@ static void android_media_MediaPlayer_native_setup(JNIEnv *env, jobject thiz, jo
 }
 ```
 
-### 3 setDataSource 过程
+### 2.3 setDataSource 过程
 
 #### 文件传入的情况
 
@@ -486,7 +486,7 @@ JAVA 和 C++ 层互相调用的好处：
 - 效率高：在运行速度上 C++ 执行时间短，且底层也是用 C++ 语言编写；对于复杂的渲染以及时间要求比较高的渲染，放在 Native 层是最好不过的选择
 - 连通性：正向调用将值传入，反向调用将处理结果通知回去；相当于一条管道
 
-### 4 setDisplay 过程
+### 2.4 setDisplay 过程
 
 在`setDataSource`之后，开始进行的是`mp.setDisplay(holder)`：
 
@@ -658,7 +658,7 @@ android_media_MediaPlayer_prepare(JNIEnv *env, jobject thiz)
     sp<IGraphicBufferProducer> st = getVideoSurfaceTexture(env, thiz);
     // 传递给 MediaPlayer
     mp->setVideoSurfaceTexture(st);
-        // 检查 MediaPlayer 调用 prepare 后是否有异常（参数不合法、IO 异常等）
+    // 检查 MediaPlayer 调用 prepare 后是否有异常（参数不合法、IO 异常等）
     process_media_player_call( env, thiz, mp->prepare(), "java/io/IOException", "Prepare failed." );
 }
 ```
@@ -1032,7 +1032,7 @@ private:
 
 ```
 
-## 4 C++ 中 MediaPlayer 的 C/S 架构
+## 4. C++ 中 MediaPlayer 的 C/S 架构
 
 本节将会分析 JNI 层的调用。先从[`setDataSource`](http://androidxref.com/9.0.0_r3/xref/frameworks/av/media/libmedia/mediaplayer.cpp#175)来看 C/S 模式的过程：
 
