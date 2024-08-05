@@ -47,3 +47,5 @@ Android 10 之后引入专用的 C2 架构（用来代理 OMX IL 架构），C2 
 - [《Android MediaPlayer 源码分析》](https://blog.csdn.net/u013936727/article/details/127871783) NuPlayer 的创建
 - [《MediaPlayer 的核心-NuPlayer》](https://juejin.cn/post/7187980308892319799)
 - [《NuPlayer 解封装模块分析](https://blog.csdn.net/qq_25333681/article/details/90614193)
+- [《MediaExtractor 源码分析一》](https://blog.csdn.net/mdx20072419/article/details/125182794)
+- [《MediaExtractor 源码分析二》](https://blog.csdn.net/mdx20072419/article/details/125189651)
