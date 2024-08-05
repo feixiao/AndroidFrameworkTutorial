@@ -42,6 +42,11 @@ Android 10 之后引入专用的 C2 架构（用来代理 OMX IL 架构），C2 
 6. SurfaceFlinger 再通过 HW Composer 将数据推送到 DPU 进行渲染，之后再推到屏幕显示。
    ![](./imgs/video_data_flow.png)
 
+   - MediaExtractor 负责从文件中分离音视频数据，并抽象成 MediaSource。
+   - MediaSource 生产数据，送往 MediaCodec。MediaCodec 又将数据通过 ACodec 和 OMX 的接口送往 Decoder。
+   - Decoder 解码后的数据会返回给 MediaCodec，之后再由 MediaCodec 送往 Renderer 模块。
+   - MediaExtractor 以 plugin 的方式支持不同的音视频格式
+
 #### 参考资料
 
 - [《Android MediaPlayer 源码分析》](https://blog.csdn.net/u013936727/article/details/127871783) NuPlayer 的创建
