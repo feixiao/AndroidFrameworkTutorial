@@ -27,3 +27,7 @@
 #### 系统
 
 系统中可以存在很多解码器 ， 但能够被应⽤的解码器是根据配置来的,即/system/etc/media_codecs.xml。这个⽂件⼀般由硬件或者系统的⽣产⼚家在编译整个系统的时候提供，⼀般保存在代码的 device/[company]/[codename]⽬录下。
+
+#### 参考资料
+
+- [《自定义媒体组件》](https://source.android.com/docs/core/media/updatable-media?hl=zh-cn)
