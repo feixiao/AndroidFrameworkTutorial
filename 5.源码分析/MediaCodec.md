@@ -93,8 +93,9 @@
 
 
 #### 创建自定义解码器
-
+对于 Google 提供的解码器尚不支持的格式，您都需要创建一个自定义解码器。已经支持的格式实现在frameworks/av/media/codec2/components。
 
 #### 参考资料
 
 - [《自定义媒体组件》](https://source.android.com/docs/core/media/updatable-media?hl=zh-cn)
+- [《Android Codec2处理流程适配和解析》](https://cloud.tencent.com/developer/article/2393435)
