@@ -82,7 +82,7 @@
 + 系统已有的实现frameworks/av/media/extractors中找到,实现MediaExtractorPluginHelper即可
   ```C++
   class WAVExtractor : public MediaExtractorPluginHelper 
-  ```
+  ``` 
 + 由于 Android 10 或更高版本仅支持提取器 API 的最高版本，因此请务必先将提取器 API 升级到最高版本，然后再对提取器进行建模。
 
 + 将自定义提取器放在 /system/lib/64/extractors 或供应商 APEX 中，后者会随包含 Google 提取器的 Google APEX 一起打开。如需验证相应框架是否已加载您的提取器，请运行以下命令。
@@ -90,7 +90,7 @@
   adb shell dumpsys media.extractor 
   ```
 
-
+注： 详细流程 [《MediaExtractor源码分析》](./MediaExtractor.md)
 
 #### 创建自定义解码器
 对于 Google 提供的解码器尚不支持的格式，您都需要创建一个自定义解码器。已经支持的格式实现在frameworks/av/media/codec2/components。

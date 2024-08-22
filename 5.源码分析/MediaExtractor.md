@@ -67,7 +67,94 @@ struct ExtractorDef {
 
 ### MediaExtractorFactory
 ![MediaExtractorFactory](./imgs/MediaExtractorFactory.png)
+#### MediaExtractorPluginHelper
+每个 extractor 都需要实现一个 MediaExtractorPluginHelper 类，这个类的作用就是封装成 MediaExtractor 对象。
+```c++
+// extractor plugins can derive from this class which looks remarkably
+// like MediaExtractor and can be easily wrapped in the required C API
+class MediaExtractorPluginHelper {
+public:
+  virtual ~MediaExtractorPluginHelper() {}
 
+  /**
+   *  countTracks 返回封装内的数据流，wav只有音频(1)
+   */
+  virtual size_t countTracks() = 0;
 
+  /**
+   * @param index 对应的track索引
+   * @return MediaTrackHelper*, 返回对应Tracker的操作类
+   */
+  virtual MediaTrackHelper *getTrack(size_t index) = 0;
+
+  enum GetTrackMetaDataFlags { kIncludeExtensiveMetaData = 1 };
+
+  /***
+   * getTrackMetaData 获取对应的Track的媒体信息
+   * @param
+   */
+  virtual media_status_t getTrackMetaData(AMediaFormat *meta, size_t index,
+                                          uint32_t flags = 0) = 0;
+
+  // Return container specific meta-data. The default implementation
+  // returns an empty metadata object.
+  virtual media_status_t getMetaData(AMediaFormat *meta) = 0;
+  virtual media_status_t setMediaCas(const uint8_t * /*casToken*/,
+                                     size_t /*size*/) {
+    return AMEDIA_ERROR_INVALID_OPERATION;
+  }
+
+  virtual const char *name() { return "<unspecified>"; }
+  .....
+};
+```
+##### MediaTrackHelper
+MediaTrackHelper 是一个操作类，用来操作对应的 Track。
+```c++
+class MediaTrackHelper {
+public:
+    /**
+   * 初始化
+   */
+  virtual media_status_t start() = 0;
+
+  /**
+   * 停止
+   **/
+  virtual media_status_t stop() = 0;
+      /**
+   *  获取格式信息
+   * @param format 格式信息(kv结构)
+   **/
+  virtual media_status_t getFormat(AMediaFormat *format) = 0;
+
+    /***
+   *  read 读取数据。
+   * @param buffer 读取到的数据
+   * @param options 读取选项，包含seek模式、是否非阻塞等信息。
+   * @return 读取状态，如果是AMEDIA_OK表示成功，其他值表示失败。
+   **/
+  virtual media_status_t read(MediaBufferHelper **buffer,
+                              const ReadOptions *options = NULL) = 0;
+  virtual bool supportsNonBlockingRead() { return false; }
+ protected:
+  // 转换为CMediaTrack接口
+  friend CMediaTrack *wrap(MediaTrackHelper *track);
+};
+
+// CMediaTrack 是C++层的接口，用来操作对应的Track。
+// 这里的data是指向MediaTrackHelper对象的指针。
+struct CMediaTrack {
+  void *data;
+  void (*free)(void *data);
+
+  media_status_t (*start)(void *data, CMediaBufferGroup *bufferGroup);
+  media_status_t (*stop)(void *data);
+  media_status_t (*getFormat)(void *data, AMediaFormat *format);
+  media_status_t (*read)(void *data, CMediaBuffer **buffer, uint32_t options,
+                         int64_t seekPosUs);
+  bool (*supportsNonBlockingRead)(void *data);
+};
+```
 #### 参考资料
 + [《MediaExtractor》](https://blog.csdn.net/qq_41828351/article/details/132482965)
