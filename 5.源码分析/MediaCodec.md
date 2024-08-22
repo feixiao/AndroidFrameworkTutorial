@@ -90,7 +90,7 @@
   adb shell dumpsys media.extractor 
   ```
 
-注： 详细流程 [《MediaExtractor源码分析》](./MediaExtractor.md)
+注： 解封装详细流程 [《MediaExtractor源码分析》](./MediaExtractor.md)
 
 #### 创建自定义解码器
 对于 Google 提供的解码器尚不支持的格式，您都需要创建一个自定义解码器。已经支持的格式实现在frameworks/av/media/codec2/components。

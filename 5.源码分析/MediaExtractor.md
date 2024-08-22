@@ -156,5 +156,10 @@ struct CMediaTrack {
   bool (*supportsNonBlockingRead)(void *data);
 };
 ```
+
+#### 解码
++ [MediaCodec](MediaCodec.md)
+
+
 #### 参考资料
 + [《MediaExtractor》](https://blog.csdn.net/qq_41828351/article/details/132482965)
