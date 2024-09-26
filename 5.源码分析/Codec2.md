@@ -212,3 +212,7 @@ bool SimpleC2Component::processQueue() {
 ```
 ### codec2数据流
 ![](./imgs/codec2.png)
+
+
+### 参考资料
++ [《Android Codec2处理流程适配和解析》](https://www.cnblogs.com/zhanyaowang/p/18234852)
