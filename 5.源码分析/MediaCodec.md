@@ -99,3 +99,5 @@
 
 - [《自定义媒体组件》](https://source.android.com/docs/core/media/updatable-media?hl=zh-cn)
 - [《Android Codec2处理流程适配和解析》](https://cloud.tencent.com/developer/article/2393435)
+- [《MediaCodec基本原理及使用》](https://cloud.tencent.com/developer/article/2064998)
+- [《MediaCodec编解码器插件模块化注册和创建处理流程》](https://blog.csdn.net/u012430727/article/details/115727792)
